@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "razor1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int m = 5;
+    int n = 10;
+    var k="";
+    if(DateTime.Now.Hour>12)
+    { k = "下午好"; }
+    else
+    {
+        k = "早上好";
+    }
+    var forecolor = "black";
+    var backcolor = "red";
+    var filePath = "~/Views/Home/About.cshtml";
+}
+<style type="text/css">
+    #div1{color:@backcolor;background-color:@forecolor;}
+  
+</style>
+<div>
+    m=5,n=10,m+n=@(m+n)
+</div>
+<div id="div1">
+    @k
+</div>
+<div id="div1"></div>
+<script>
+    $("#div1").text("获取URL路由字符串：@Url.Action("razor1","Home")");
+   @* 这里浏览器看不到*@
+    ///  这里浏览器看得见
+</script>
+<p>@Server.MapPath(filePath)</p>
+<h2>razor1</h2>
+
+<div class="bg-primary">在C#代码块中使用HTML元素</div>
+@{ 
+    List<string> list = new List<string>();
+    for(int i=0;i<10;i++)
+    {
+        list.Add(string.Format("第{0}项", i));
+    }
+    foreach(var v in list)
+    {
+        <p>@v</p>
+    }
+}

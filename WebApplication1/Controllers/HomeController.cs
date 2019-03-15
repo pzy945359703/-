@@ -10,6 +10,7 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
+            var filePath = ControllerContext.HttpContext.Request.CurrentExecutionFilePath;
             return View();
         }
 
@@ -26,10 +27,12 @@ namespace WebApplication1.Controllers
 
             return View();
         }
-        public ActionResult Test()
+        public ActionResult razor1()
         {
-            ViewBag.Title = "tset";
-            ViewBag.Message = "Your TEST page.";
+            
+           
+           
+            ViewBag.Message = "1";
 
             return View();
         }
@@ -40,6 +43,15 @@ namespace WebApplication1.Controllers
         public ActionResult Start()
         {
             return View();
+        }
+        public ActionResult AjaxDemo()
+        {
+            return View();
+        }
+        public ActionResult Ajax1()
+        {
+            string s = string.Format("{0:HH:mm:ss}", DateTime.Now);
+            return Content(s);
         }
     }
 }
